@@ -32,19 +32,18 @@
    NoSQL, because data is unstructured in nature.
 
 2. How would you manage traffic spikes?
-   We can do horizontal scaling of our service which involves, adding more instances (servers) to our application to handle increased load. We can utilize auto-scaling groups to automatically adjust the number of instances based on predefined scaling policies.
+   We can do horizontal scaling of our service which involves adding more instances (servers) to our application to handle increased load. We can utilize auto-scaling groups to automatically adjust the number of instances based on predefined scaling policies.
    Additionally we can use Application Load Balancers to distribute incoming application traffic across multiple targets, such as EC2 instances, containers, or IP addresses.
 
 3. How would you ensure high availability and fault tolerance for the service?
-   To ensure high availability we can do data replication across different servers or clusters to ensure redundancy and use load balancers to distribute incoming traffic across these instances to prevent a single point of failure.
-   Additionally, we'll regularly back up critical data and implement a robust data recovery strategy.
+   To ensure high availability we can do data replication across different servers or clusters to ensure redundancy and use load balancers to distribute incoming traffic across these instances to prevent a single point of failure. Additionally, we'll regularly back up critical data and implement a robust data recovery strategy.
 
 4. How would you ensure the security of the data?
    Using proper authentication and authorization methods, keeping the service behind an API gateway and leveraging the API Gateway's authentication features to control and manage access to APIs based on user roles and permissions.
 
 5. How would you handle logging, monitoring, and alerting for the service?
-   Logging is implemented in the application using `logging` module, logs can be directed to a service like splunk or wavefront for monirtoring and observability. Alerts can be setup for low availability, high error count, high latecies etc.
-   ADditionally we can enable logging of API requests and responses to track potential security incidents and monitor for abnormal behavior and integrate the API Gateway with monitoring tools to receive alerts and notifications about security events or performance issues.
+   Logging is implemented in the application using the `logging` module, logs can be directed to a service like splunk or wavefront for monitoring and observability. Alerts can be set up for low availability, high error count, high latencies etc.
+   Additionally we can enable logging of API requests and responses to track potential security incidents and monitor for abnormal behavior and integrate the API Gateway with monitoring tools to receive alerts and notifications about security events or performance issues.
 
 6. Which hosting providers and services would you consider using and why?
-   Amazon Web Services would be a good choice, beacause of it's high scalability, global reach, security and compliance, ecosystem and many other benefits.
+   Amazon Web Services would be a good choice, because of its high scalability, global reach, security and compliance, ecosystem and many other benefits.
