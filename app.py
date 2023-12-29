@@ -1,10 +1,12 @@
-from flask import Flask, request, jsonify
-from flask_pymongo import PyMongo
-from multiprocessing import Pool, Process
-from flask_limiter import Limiter
-from flask_limiter.util import get_remote_address
 import logging
 import uuid
+from functools import lru_cache
+from multiprocessing import Pool, Process
+
+from flask import Flask, jsonify, request
+from flask_limiter import Limiter
+from flask_limiter.util import get_remote_address
+from flask_pymongo import PyMongo
 
 app = Flask(__name__)
 app.config["MONGO_URI"] = "mongodb://localhost:27017/postDatabase"
@@ -60,6 +62,7 @@ def chunks(lst, n):
 
 @app.route("/api/v1/posts/<id>/analysis/", methods=["GET"])
 @limiter.limit("100 per minute")
+@lru_cache(maxsize=1024)
 def get_post(id):
     try:
         post = mongo.db.posts.find_one({"_id": id})
